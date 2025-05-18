@@ -1,0 +1,639 @@
+:root {
+    font-family: "Quicksand", sans-serif;
+    --app-bg: #fff;
+    --modal-before: rgba(215, 215, 215, .5);
+    --main-font-color: #000;
+    --light-font-color: #becaca;
+    --main-border-color: #f3f3f3;
+    --secondary-border-color: #faeceb;
+    --button-bg-light: #f3f3f3;
+    --cards-area-bg: #f4f4f6;
+    --cards-bg: #fff;
+    --buttons-color-primary: #d84851;
+    --buttons-color-secondary: #f8e4e5;
+    --filter-bg: #fff;
+    --search-bg: #838383;
+}
+
+*{
+    box-sizing: border-box;
+    outline: none;
+}
+body, html {
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    background-color: var(--app-bg);
+    transition: 0.2s;
+    overflow-x: hidden;
+    overflow-y: visible;
+}
+/* UIVERSE DARK THEME SWITCH */
+/* From Uiverse.io by rishichawda */ 
+/* The switch - the box around the slider */
+#theme-toggle-button {
+  font-size: 10px;
+  position: relative;
+  display: inline-block;
+  width: 7em;
+  cursor: pointer;
+}
+
+/* Hide default HTML checkbox */
+#toggle {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+#container,
+#patches,
+#stars,
+#button,
+#sun,
+#moon,
+#cloud {
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 0.25s;
+}
+
+/* night sky background */
+#toggle:checked + svg #container {
+  fill: #2b4360;
+}
+
+/* move button to right when checked */
+#toggle:checked + svg #button {
+  transform: translate(28px, 2.333px);
+}
+
+/* show/hide sun and moon based on checkbox state */
+#sun {
+  opacity: 1;
+}
+
+#toggle:checked + svg #sun {
+  opacity: 0;
+}
+
+#moon {
+  opacity: 0;
+}
+
+#toggle:checked + svg #moon {
+  opacity: 1;
+}
+
+/* show or hide background items on checkbox state */
+#cloud {
+  opacity: 1;
+}
+
+#toggle:checked + svg #cloud {
+  opacity: 0;
+}
+
+#stars {
+  opacity: 0;
+}
+
+#toggle:checked + svg #stars {
+  opacity: 1;
+}
+/* HAMBURGER FROM UIVERSE */
+/* From Uiverse.io by JulanDeAlb */ 
+.hamburger {
+  cursor: pointer;
+  display: none;
+}
+
+.hamburger input {
+  display: none;
+}
+
+.hamburger svg {
+  /* The size of the SVG defines the overall size */
+  height: 3em;
+  /* Define the transition for transforming the SVG */
+  transition: transform 600ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.line {
+  fill: none;
+  stroke: black;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 3;
+  /* Define the transition for transforming the Stroke */
+  transition: stroke-dasharray 600ms cubic-bezier(0.4, 0, 0.2, 1),
+              stroke-dashoffset 600ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.line-top-bottom {
+  stroke-dasharray: 12 63;
+}
+
+.hamburger input:checked + svg {
+  transform: rotate(-45deg);
+}
+
+.hamburger input:checked + svg .line-top-bottom {
+  stroke-dasharray: 20 300;
+  stroke-dashoffset: -32.42;
+}
+/* NAV BAR */
+.nav-bar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+nav ul{
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+    list-style: none;
+}
+.logo-container{
+    width: 70px;
+    height: 70px;
+}
+.logo-container img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+a{
+    color: black;
+    text-decoration: none;
+    font-size: 18px;
+}
+ul a:hover{
+    transition: all 0.3s ease;
+    background-image: linear-gradient(90deg, #5fb2ff, #7bfafe);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+
+    border-image: linear-gradient(90deg, #5fb2ff, #7bfafe) 1;
+    text-decoration: underline #7bfafe;
+    padding: 4px 8px; /* optional: spacing inside border */
+}
+.hero-section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0px;
+    height: 600px;
+
+    
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url(./assets/large-vecteezy_modern-workspace-with-laptop-tablet-smartphone-and-coffee_9805357_large.jpg);
+}
+.hero-section h1{
+    font-size: 54px;
+}
+.hero-section h4{
+    font-size: 26px;
+    font-weight: 500;
+    text-align: center;
+}
+.selling-point{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.selling-point h2{
+    color: black;
+    font-size: 34px;
+}
+.selling-point p{
+    color: black;
+    font-size: 18px;
+}
+.reasons{
+    padding: 60px;
+     background-image: linear-gradient(to bottom, #bde9fd, #ffffff);
+}
+.r-one{
+    gap: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    height: 400px;
+    align-items: center;
+}
+.explain{
+    padding: 20px;
+    height: 350px;
+    width: 30%;
+    border-radius: 10px;
+    background-color: #becacabb;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+.slideshow{
+    overflow: hidden;
+    height: 350px;
+}
+.slideshow img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.why_choose_us{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    padding: 0px 40px;
+    justify-content: center;
+}
+.why_us{
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+.why_us:hover{
+    transform: translateY(10px) ;
+    transition: 0.4s ease;
+    border: 1px solid rgb(185, 185, 185);
+    padding: 10px 0px;
+}
+.container_text{
+    padding: 0px 25px;
+}
+.container_text h2{
+    font-size: 20px;
+}
+.container_text h4{
+    font-size: 15px;
+    font-weight: 500;
+}
+.container{
+    width: 100%;
+    height: 100%;
+}
+.container img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.card {
+    background: #fff;
+    color: #333;
+    margin: 80px auto;
+    width: 90%;
+    max-width: 1200px;
+    border-radius: 2rem;
+}
+
+.title {
+    text-align: center;
+    font-size: 36px;
+}
+
+.acc-container {
+    padding: 20px 30px;
+}
+.acc-btn {
+    width: 100%;
+    padding: 18px 20px;
+    font-size: 26px;
+    cursor: pointer;
+    background: inherit;
+    border: none;
+    outline: none;
+    text-align: left;
+    font-size: 15px;
+    transition: all 0.5s ease;
+}
+.acc-btn:after {
+    content: "\27A4";
+    color: #fa8d0c;
+    float: right;
+    transition: all 0.3s linear;
+}
+.acc-btn.is-open:after {
+    transform: rotate(90deg);
+}
+.acc-btn:hover, .acc-btn.is-open {
+    color: #000;
+    font-weight: bold;
+    
+}
+
+.acc-content {
+    max-height: 0;
+    color: rgba(0,0,0,0.75);
+    font-size: 17px;
+    margin: 0 2rem;
+    padding-left: 1rem;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out;
+    border-bottom: 1px solid #ccc;
+}
+
+.credit {
+    text-align: center;
+    padding: 1rem;
+}
+.credit a {
+    text-decoration: wavy underline;
+    color: dodgerblue;
+}
+
+
+.consultation{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+}
+.consultation div{
+    padding: 20px;
+    border-radius: 60px;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(235, 235, 235);
+}
+.consultation div h2{
+    font-size: 30px;
+}
+.consultation div h4{
+    font-size: 16px;
+    font-weight: 500;
+}
+.consult_btn {
+  padding: 17px 40px;
+  border-radius: 50px;
+  cursor: pointer;
+  border: 0;
+  background-color: white;
+  box-shadow: rgb(0 0 0 / 5%) 0 0 8px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  font-size: 15px;
+  transition: all 0.5s ease;
+}
+
+.consult_btn:hover {
+  border: 1px solid black;
+  letter-spacing: 3px;
+  background-color: hsl(261deg 80% 48%);
+  color: hsl(0, 0%, 100%);
+  box-shadow: rgb(93 24 220) 0px 7px 29px 0px;
+}
+
+.consult_btn::after {
+  border: 1px solid black;
+  letter-spacing: 3px;
+  background-color: hsl(261deg 80% 48%);
+  color: hsl(0, 0%, 100%);
+  box-shadow: rgb(93 24 220) 0px 0px 0px 0px;
+  transform: translateY(10px);
+  transition: 100ms;
+}
+
+.footer_container{
+	max-width: 1170px;
+	margin:auto;
+}
+.row{
+	display: flex;
+	flex-wrap: wrap;
+}
+ul{
+	list-style: none;
+}
+.footer{
+    padding: 70px 0;
+}
+.footer-col{
+   width: 25%;
+   padding: 0 15px;
+}
+.footer-col h4{
+	font-size: 18px;
+	color: black;
+	text-transform: capitalize;
+	margin-bottom: 35px;
+	font-weight: 500;
+	position: relative;
+}
+.footer-col h4::before{
+	content: '';
+	position: absolute;
+	left:0;
+	bottom: -10px;
+	background-color: #e91e63;
+	height: 2px;
+	box-sizing: border-box;
+	width: 50px;
+}
+.footer-col ul li:not(:last-child){
+	margin-bottom: 10px;
+}
+.footer-col ul li a{
+	font-size: 16px;
+	text-transform: capitalize;
+	color: black;
+	text-decoration: none;
+	font-weight: 300;
+	color: black;
+	display: block;
+	transition: all 0.3s ease;
+}
+.footer-col ul li a:hover{
+	color: #333;
+	padding-left: 8px;
+}
+.footer-col .social-links a{
+	display: inline-block;
+	height: 40px;
+	width: 40px;
+	background-color: rgba(255,255,255,0.2);
+	margin:0 10px 10px 0;
+	text-align: center;
+	line-height: 40px;
+	border-radius: 50%;
+	color: black;
+	transition: all 0.5s ease;
+}
+.footer-col .social-links a:hover{
+	color: #24262b;
+	background-color: #bde9fd;
+}
+
+@media (max-width: 1152px) {
+    .hero-section h1{
+        font-size: 44px;
+    }
+    .hero-section h4{
+        font-size: 24px;
+    }
+    .selling-point h2{
+        font-size: 30px;
+    }
+    .why_us{
+        width: 30%;
+    }
+    .container_text h2{
+    font-size: 17px;
+    }
+    .container_text h4{
+        font-size: 14px;
+        font-weight: 500;
+    }
+    .footer{
+        padding: 0px 40px;
+    }
+}
+@media (max-width: 979px) {
+    .r-one{
+        height: 850px;
+    }
+    .slideshow{
+        width: 90%;
+        height: 450px;
+    }
+    .explain{
+        width: 100%;
+    }
+    .consultation div{
+        padding: 5px 0px;
+    }
+    .container img{
+        width: 90%;
+        height: 90%;
+    }
+}
+@media (max-width: 856px) {
+    .hero-section h1{
+        font-size: 34px;
+    }
+    .hero-section h4{
+        font-size: 18px;
+    }
+    .selling-point h2{
+        font-size: 26px;
+    }
+    .selling-point p{
+        font-size: 17px;
+    }
+    .why_us{
+        width: 30%;
+    }
+    .footer{
+        padding: 0px 40px;
+    }
+    .why_choose_us{
+        gap: 10px;
+        padding: 0px 2px;
+    }
+    .footer-col{
+    width: 50%;
+    margin-bottom: 30px;
+    text-align: center;
+    align-items: center;
+    }
+
+}
+@media (max-width: 594px) {
+    nav{
+        display: none;
+    }
+    .hamburger{
+        display: inline-block;
+    }
+    .hero-section h1{
+        text-align: center;
+    }
+    .hero-section h4{
+        font-size: 16px;
+    }
+    .selling-point h2{
+        font-size: 20px;
+    }
+    .selling-point p{
+        font-size: 16px;
+    }
+    .why_choose_us {
+        display: flex;
+        flex-direction: column; /* stack items vertically */
+        align-items: center;    /* optional: center items horizontally */
+        justify-content: flex-start; /* optional: align items to top */
+        margin: 0; /* reset margin */
+        padding: 0; /* reset padding */
+    }
+
+    .why_us {
+        flex: none; /* prevent flex from trying to resize */
+        width: 90%; /* or 100%, depending on preference */
+        max-width: 90%; /* limit width to prevent overflow */
+        margin: 10px 0; /* vertical spacing between items */
+        padding: 0;
+        box-sizing: border-box;
+    }
+    .footer-col{
+        width: 100%;
+    }
+    .footer-col h4::before{
+	background-color: transparent;
+}
+}
+@media (max-width: 414px) {
+    .hero-section {
+        padding: 20px;
+    }
+    .hero-section h1{
+        font-size: 26px;
+    }
+    .hero-section h4{
+        font-size: 14px;
+    }
+    .selling-point{
+        padding: 20px;
+    }
+    .selling-point h2{
+        font-size: 22px;
+    }
+    .selling-point h4{
+        font-size: 14px;
+    }
+    .reasons{
+        padding: 20px;
+    }
+    .slideshow{
+        width: 100%;
+        height: 220px;
+    }
+    .r-one{
+        gap: 20px;
+        height: 520px;
+    }
+    .explain{
+        height: 280px;
+    }
+    .consultation div h2{
+        font-size: 22px;
+    }
+    .consultation div h4{
+        font-size: 14px;
+    }
+    .consult_btn{
+        padding: 10px 30px;
+    }
+}
