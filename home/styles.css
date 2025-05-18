@@ -105,13 +105,56 @@ body, html {
 /* HAMBURGER FROM UIVERSE */
 /* From Uiverse.io by JulanDeAlb */ 
 .hamburger {
-  cursor: pointer;
-  display: none;
+    position: relative;
+    cursor: pointer;
+    display: none;
 }
 
-.hamburger input {
+/* .hamburger input {
   display: none;
+} */
+.hamburger-box {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: relative;
 }
+
+.hamburger-inner {
+  display: block;
+  background-color: #333; /* line color */
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+  transform: translateY(-50%);
+}
+
+/* Create the top and bottom lines using pseudo-elements if needed, or add extra spans. */
+.hamburger-inner::before,
+.hamburger-inner::after {
+  content: "";
+  display: block;
+  background-color: #333;
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* Position the pseudo-elements for the top and bottom lines */
+.hamburger-inner::before {
+  top: -10px;
+}
+
+.hamburger-inner::after {
+  bottom: -10px;
+}
+
 
 .hamburger svg {
   /* The size of the SVG defines the overall size */
@@ -135,13 +178,53 @@ body, html {
   stroke-dasharray: 12 63;
 }
 
-.hamburger input:checked + svg {
+#menu-toggle:checked + svg {
   transform: rotate(-45deg);
 }
 
-.hamburger input:checked + svg .line-top-bottom {
+#menu-toggle:checked + svg .line-top-bottom {
   stroke-dasharray: 20 300;
   stroke-dashoffset: -32.42;
+}
+/* Basic styles for the menu container */
+.menu-container {
+  position: relative;
+  display: inline-block;
+}
+
+/* Hide the checkbox input visually but keep it accessible */
+#menu-toggle {
+  display: none;
+}
+
+/* Style for the menu that appears */
+.nav-mobile {
+  position: absolute;
+  top: 50px; /* Adjust based on your layout */
+  right: 0;
+  background-color: white; /* Or your preferred background */
+  border: 1px solid #ccc;
+  padding: 10px;
+  display: none; /* Hidden by default */
+  flex-direction: column; /* Stack links vertically */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  z-index: 1000;
+}
+
+/* Show the menu when checkbox is checked */
+#menu-toggle:checked ~ .nav-mobile {
+  display: flex;
+}
+
+/* Optional: Add hover styles for links */
+.nav-mobile a {
+  text-decoration: none;
+  padding: 8px 12px;
+  color: #333;
+}
+
+.nav-mobile a:hover {
+  background-color: #f0f0f0;
 }
 /* NAV BAR */
 .nav-bar{
@@ -179,6 +262,12 @@ ul a:hover{
     border-image: linear-gradient(90deg, #5fb2ff, #7bfafe) 1;
     text-decoration: underline #7bfafe;
     padding: 4px 8px; /* optional: spacing inside border */
+}
+.nav-link.active {
+  color: #5fb2ff;
+}
+.nav-link:not(.active):hover {
+  color: var(--buttons-color-primary);
 }
 .hero-section{
     display: flex;
@@ -513,12 +602,15 @@ ul{
         width: 100%;
     }
     .consultation div{
-        padding: 5px 0px;
+        padding: 15px 0px;
     }
     .container img{
         width: 90%;
         height: 90%;
     }
+        .footer-col h4::before{
+	background-color: transparent;
+}
 }
 @media (max-width: 856px) {
     .hero-section h1{
@@ -533,15 +625,42 @@ ul{
     .selling-point p{
         font-size: 17px;
     }
+    .reasons{
+        padding: 20px;
+    }
+    .r-one{
+        height: 750px;
+        gap: 20px;
+    }
+    .slideshow{
+        width: 90%;
+        height: auto;
+    }
+    .explain{
+        width: 90%;
+    }
     .why_us{
         width: 30%;
     }
     .footer{
         padding: 0px 40px;
     }
-    .why_choose_us{
-        gap: 10px;
-        padding: 0px 2px;
+    .why_choose_us {
+        display: flex;
+        flex-direction: column; /* stack items vertically */
+        align-items: center;    /* optional: center items horizontally */
+        justify-content: flex-start; /* optional: align items to top */
+        margin: 0; /* reset margin */
+        padding: 0; /* reset padding */
+    }
+
+    .why_us {
+        flex: none; /* prevent flex from trying to resize */
+        width: 90%; /* or 100%, depending on preference */
+        max-width: 90%; /* limit width to prevent overflow */
+        margin: 10px 0; /* vertical spacing between items */
+        padding: 0;
+        box-sizing: border-box;
     }
     .footer-col{
     width: 50%;
@@ -570,23 +689,21 @@ ul{
     .selling-point p{
         font-size: 16px;
     }
-    .why_choose_us {
-        display: flex;
-        flex-direction: column; /* stack items vertically */
-        align-items: center;    /* optional: center items horizontally */
-        justify-content: flex-start; /* optional: align items to top */
-        margin: 0; /* reset margin */
-        padding: 0; /* reset padding */
+    .reasons{
+        padding: 20px;
+    }
+    .r-one{
+        height: 600px;
+        gap: 20px;
+    }
+    .slideshow{
+        width: 90%;
+        height: auto;
+    }
+    .explain{
+        width: 90%;
     }
 
-    .why_us {
-        flex: none; /* prevent flex from trying to resize */
-        width: 90%; /* or 100%, depending on preference */
-        max-width: 90%; /* limit width to prevent overflow */
-        margin: 10px 0; /* vertical spacing between items */
-        padding: 0;
-        box-sizing: border-box;
-    }
     .footer-col{
         width: 100%;
     }

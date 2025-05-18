@@ -1,0 +1,532 @@
+:root {
+    font-family: "Quicksand", sans-serif;
+    --app-bg: #fff;
+    --modal-before: rgba(215, 215, 215, .5);
+    --main-font-color: #000;
+    --light-font-color: #becaca;
+    --main-border-color: #f3f3f3;
+    --secondary-border-color: #faeceb;
+    --button-bg-light: #f3f3f3;
+    --cards-area-bg: #f4f4f6;
+    --cards-bg: #fff;
+    --buttons-color-primary: #d84851;
+    --buttons-color-secondary: #f8e4e5;
+    --filter-bg: #fff;
+    --search-bg: #838383;
+}
+
+*{
+    box-sizing: border-box;
+    outline: none;
+}
+body, html {
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    background-color: var(--app-bg);
+    transition: 0.2s;
+    overflow-x: hidden;
+    overflow-y: visible;
+}
+/* UIVERSE DARK THEME SWITCH */
+/* From Uiverse.io by rishichawda */ 
+/* The switch - the box around the slider */
+#theme-toggle-button {
+  font-size: 10px;
+  position: relative;
+  display: inline-block;
+  width: 7em;
+  cursor: pointer;
+}
+
+/* Hide default HTML checkbox */
+#toggle {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+#container,
+#patches,
+#stars,
+#button,
+#sun,
+#moon,
+#cloud {
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 0.25s;
+}
+
+/* night sky background */
+#toggle:checked + svg #container {
+  fill: #2b4360;
+}
+
+/* move button to right when checked */
+#toggle:checked + svg #button {
+  transform: translate(28px, 2.333px);
+}
+
+/* show/hide sun and moon based on checkbox state */
+#sun {
+  opacity: 1;
+}
+
+#toggle:checked + svg #sun {
+  opacity: 0;
+}
+
+#moon {
+  opacity: 0;
+}
+
+#toggle:checked + svg #moon {
+  opacity: 1;
+}
+
+/* show or hide background items on checkbox state */
+#cloud {
+  opacity: 1;
+}
+
+#toggle:checked + svg #cloud {
+  opacity: 0;
+}
+
+#stars {
+  opacity: 0;
+}
+
+#toggle:checked + svg #stars {
+  opacity: 1;
+}
+/* HAMBURGER FROM UIVERSE */
+/* From Uiverse.io by JulanDeAlb */ 
+.hamburger {
+    position: relative;
+    cursor: pointer;
+    display: none;
+}
+
+/* .hamburger input {
+  display: none;
+} */
+.hamburger-box {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.hamburger-inner {
+  display: block;
+  background-color: #333; /* line color */
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+  transform: translateY(-50%);
+}
+
+/* Create the top and bottom lines using pseudo-elements if needed, or add extra spans. */
+.hamburger-inner::before,
+.hamburger-inner::after {
+  content: "";
+  display: block;
+  background-color: #333;
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* Position the pseudo-elements for the top and bottom lines */
+.hamburger-inner::before {
+  top: -10px;
+}
+
+.hamburger-inner::after {
+  bottom: -10px;
+}
+
+
+.hamburger svg {
+  /* The size of the SVG defines the overall size */
+  height: 3em;
+  /* Define the transition for transforming the SVG */
+  transition: transform 600ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.line {
+  fill: none;
+  stroke: black;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 3;
+  /* Define the transition for transforming the Stroke */
+  transition: stroke-dasharray 600ms cubic-bezier(0.4, 0, 0.2, 1),
+              stroke-dashoffset 600ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.line-top-bottom {
+  stroke-dasharray: 12 63;
+}
+
+#menu-toggle:checked + svg {
+  transform: rotate(-45deg);
+}
+
+#menu-toggle:checked + svg .line-top-bottom {
+  stroke-dasharray: 20 300;
+  stroke-dashoffset: -32.42;
+}
+/* Basic styles for the menu container */
+.menu-container {
+  position: relative;
+  display: inline-block;
+}
+
+/* Hide the checkbox input visually but keep it accessible */
+#menu-toggle {
+  display: none;
+}
+
+/* Style for the menu that appears */
+.nav-mobile {
+  position: absolute;
+  top: 50px; /* Adjust based on your layout */
+  right: 0;
+  background-color: white; /* Or your preferred background */
+  border: 1px solid #ccc;
+  padding: 10px;
+  display: none; /* Hidden by default */
+  flex-direction: column; /* Stack links vertically */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  z-index: 1000;
+}
+
+/* Show the menu when checkbox is checked */
+#menu-toggle:checked ~ .nav-mobile {
+  display: flex;
+}
+
+/* Optional: Add hover styles for links */
+.nav-mobile a {
+  text-decoration: none;
+  padding: 8px 12px;
+  color: #333;
+}
+
+.nav-mobile a:hover {
+  background-color: #f0f0f0;
+}
+/* NAV BAR */
+.nav-bar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+nav ul{
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+    list-style: none;
+}
+.logo-container{
+    width: 70px;
+    height: 70px;
+}
+.logo-container img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+a{
+    color: black;
+    text-decoration: none;
+    font-size: 18px;
+}
+ul a:hover{
+    transition: all 0.3s ease;
+    background-image: linear-gradient(90deg, #5fb2ff, #7bfafe);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+
+    border-image: linear-gradient(90deg, #5fb2ff, #7bfafe) 1;
+    text-decoration: underline #7bfafe;
+    padding: 4px 8px; /* optional: spacing inside border */
+}
+.nav-link.active {
+  color: #5fb2ff;
+}
+.nav-link:not(.active):hover {
+  color: var(--buttons-color-primary);
+}
+
+
+
+.footer_container{
+	max-width: 1170px;
+	margin:auto;
+}
+.row{
+	display: flex;
+	flex-wrap: wrap;
+}
+ul{
+	list-style: none;
+}
+.footer{
+    padding: 70px 0;
+}
+.footer-col{
+   width: 25%;
+   padding: 0 15px;
+}
+.footer-col h4{
+	font-size: 18px;
+	color: black;
+	text-transform: capitalize;
+	margin-bottom: 35px;
+	font-weight: 500;
+	position: relative;
+}
+.footer-col h4::before{
+	content: '';
+	position: absolute;
+	left:0;
+	bottom: -10px;
+	background-color: #e91e63;
+	height: 2px;
+	box-sizing: border-box;
+	width: 50px;
+}
+.footer-col ul li:not(:last-child){
+	margin-bottom: 10px;
+}
+.footer-col ul li a{
+	font-size: 16px;
+	text-transform: capitalize;
+	color: black;
+	text-decoration: none;
+	font-weight: 300;
+	color: black;
+	display: block;
+	transition: all 0.3s ease;
+}
+.footer-col ul li a:hover{
+	color: #333;
+	padding-left: 8px;
+}
+.footer-col .social-links a{
+	display: inline-block;
+	height: 40px;
+	width: 40px;
+	background-color: rgba(255,255,255,0.2);
+	margin:0 10px 10px 0;
+	text-align: center;
+	line-height: 40px;
+	border-radius: 50%;
+	color: black;
+	transition: all 0.5s ease;
+}
+.footer-col .social-links a:hover{
+	color: #24262b;
+	background-color: #bde9fd;
+}
+
+@media (max-width: 1152px) {
+    .hero-section h1{
+        font-size: 44px;
+    }
+    .hero-section h4{
+        font-size: 24px;
+    }
+    .selling-point h2{
+        font-size: 30px;
+    }
+    .why_us{
+        width: 30%;
+    }
+    .container_text h2{
+    font-size: 17px;
+    }
+    .container_text h4{
+        font-size: 14px;
+        font-weight: 500;
+    }
+    .footer{
+        padding: 0px 40px;
+    }
+}
+@media (max-width: 979px) {
+    .r-one{
+        height: 850px;
+    }
+    .slideshow{
+        width: 90%;
+        height: 450px;
+    }
+    .explain{
+        width: 100%;
+    }
+    .consultation div{
+        padding: 15px 0px;
+    }
+    .container img{
+        width: 90%;
+        height: 90%;
+    }
+        .footer-col h4::before{
+	background-color: transparent;
+}
+}
+@media (max-width: 856px) {
+    .hero-section h1{
+        font-size: 34px;
+    }
+    .hero-section h4{
+        font-size: 18px;
+    }
+    .selling-point h2{
+        font-size: 26px;
+    }
+    .selling-point p{
+        font-size: 17px;
+    }
+    .reasons{
+        padding: 20px;
+    }
+    .r-one{
+        height: 750px;
+        gap: 20px;
+    }
+    .slideshow{
+        width: 90%;
+        height: auto;
+    }
+    .explain{
+        width: 90%;
+    }
+    .why_us{
+        width: 30%;
+    }
+    .footer{
+        padding: 0px 40px;
+    }
+    .why_choose_us {
+        display: flex;
+        flex-direction: column; /* stack items vertically */
+        align-items: center;    /* optional: center items horizontally */
+        justify-content: flex-start; /* optional: align items to top */
+        margin: 0; /* reset margin */
+        padding: 0; /* reset padding */
+    }
+
+    .why_us {
+        flex: none; /* prevent flex from trying to resize */
+        width: 90%; /* or 100%, depending on preference */
+        max-width: 90%; /* limit width to prevent overflow */
+        margin: 10px 0; /* vertical spacing between items */
+        padding: 0;
+        box-sizing: border-box;
+    }
+    .footer-col{
+    width: 50%;
+    margin-bottom: 30px;
+    text-align: center;
+    align-items: center;
+    }
+
+}
+@media (max-width: 594px) {
+    nav{
+        display: none;
+    }
+    .hamburger{
+        display: inline-block;
+    }
+    .hero-section h1{
+        text-align: center;
+    }
+    .hero-section h4{
+        font-size: 16px;
+    }
+    .selling-point h2{
+        font-size: 20px;
+    }
+    .selling-point p{
+        font-size: 16px;
+    }
+    .reasons{
+        padding: 20px;
+    }
+    .r-one{
+        height: 600px;
+        gap: 20px;
+    }
+    .slideshow{
+        width: 90%;
+        height: auto;
+    }
+    .explain{
+        width: 90%;
+    }
+
+    .footer-col{
+        width: 100%;
+    }
+    .footer-col h4::before{
+	background-color: transparent;
+}
+}
+@media (max-width: 414px) {
+    .hero-section {
+        padding: 20px;
+    }
+    .hero-section h1{
+        font-size: 26px;
+    }
+    .hero-section h4{
+        font-size: 14px;
+    }
+    .selling-point{
+        padding: 20px;
+    }
+    .selling-point h2{
+        font-size: 22px;
+    }
+    .selling-point h4{
+        font-size: 14px;
+    }
+    .reasons{
+        padding: 20px;
+    }
+    .slideshow{
+        width: 100%;
+        height: 220px;
+    }
+    .r-one{
+        gap: 20px;
+        height: 520px;
+    }
+    .explain{
+        height: 280px;
+    }
+    .consultation div h2{
+        font-size: 22px;
+    }
+    .consultation div h4{
+        font-size: 14px;
+    }
+    .consult_btn{
+        padding: 10px 30px;
+    }
+}
