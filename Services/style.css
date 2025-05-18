@@ -297,6 +297,73 @@ ul a:hover{
     font-size: 16px;
     font-weight: 100;
     text-align: center;
+    color: white;
+}
+
+.options{
+    padding: 30px 80px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 60px;
+}
+.op-service{
+    padding: 20px;
+    text-align: center;
+    width: 300px;
+    border: 0.5px solid grey;
+    border-radius: 8px;
+    background-color: #448adf;
+}
+.op-service:hover{
+    transition: 0.3s ease;
+    background-color: #5fb2ff;
+}
+.op-service h2{
+    margin-bottom: 50px;
+}
+.op-service p{
+    margin-bottom: 50px;
+}
+.service-list{
+    display: flex;
+}
+.service-list div{
+    width: 30px;
+}
+.service-list div img{
+    width: 100%;
+    object-fit: cover;
+}
+.option-btn {
+  padding: 17px 40px;
+  border-radius: 50px;
+  cursor: pointer;
+  border: 0;
+  background-color: white;
+  box-shadow: rgb(0 0 0 / 5%) 0 0 8px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  font-size: 15px;
+  transition: all 0.5s ease;
+}
+
+.option-btn:hover {
+  border: 1px solid black;
+  letter-spacing: 3px;
+  background-color: hsl(261deg 80% 48%);
+  color: hsl(0, 0%, 100%);
+  box-shadow: rgb(93 24 220) 0px 7px 29px 0px;
+}
+
+.option-btn::after {
+  border: 1px solid black;
+  letter-spacing: 3px;
+  background-color: hsl(261deg 80% 48%);
+  color: hsl(0, 0%, 100%);
+  box-shadow: rgb(93 24 220) 0px 0px 0px 0px;
+  transform: translateY(10px);
+  transition: 100ms;
 }
 
 .app-services{
@@ -523,6 +590,10 @@ ul{
     .hero-section h4{
         font-size: 24px;
     }
+    .options{
+        gap: 20px;
+        padding: 20px;
+    }
     .app-services{
         padding: 20px 0px;
     }
@@ -565,7 +636,8 @@ ul{
     }
     .footer-col h4::before{
 	background-color: transparent;
-}
+    }
+
 }
 @media (max-width: 856px) {
     .hero-section h1{
@@ -573,6 +645,18 @@ ul{
     }
     .hero-section h4{
         font-size: 18px;
+    }
+    .options{
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+    }
+    .op-service{
+        flex: none; /* prevent flex from trying to resize */
+        width: 98%; /* or 100%, depending on preference */
+        max-width: 98%; /* limit width to prevent overflow */
+        margin:  0; /* vertical spacing between items */
+        box-sizing: border-box;
     }
     .footer{
         padding: 0px 40px;
