@@ -270,6 +270,145 @@ ul a:hover{
   color: var(--buttons-color-primary);
 }
 
+.hero-section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0px;
+    height: 520px;
+
+    border-radius: 10px;
+
+    
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)) ,url(./assets/vecteezy_man-are-call-center-headphone-online-support-at-home_3187172.jpg);
+}
+.hero-section h1{
+    font-size: 54px;
+
+}
+
+.contact-us{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 20px;
+}
+.contact-us div{
+  display: flex;
+  gap: 60px;
+  padding: 20px;
+  text-align: center;
+}
+.layout{
+  background-color: #5fb2ff;
+  border-radius: 20px;
+  width: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+.layout h3{
+  font-size: 22px;
+}
+.layout ul li{
+
+  text-decoration: underline;
+}
+.layout li, h3, a{
+  padding: 0;
+  margin: 0;
+}
+.layout ul{
+  margin-top: -10px;
+}
+
+.layout, .form{
+  height: 550px;
+}
+.form{
+  background-color: #ccc;
+  border-radius: 20px;
+  width: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* padding: 20px; */
+}
+
+h1 {
+  text-align: center;
+}
+
+input[type="text"],
+input[type="date"],
+input[type="email"],
+input[type="telephone"],
+textarea,
+select {
+  background: rgba(255,255,255,0.1);
+  border: none;
+  font-size: 16px;
+  margin: 0;
+  outline: 0;
+  padding: 15px;
+  width: 480px;
+  max-width: 480px;
+  background-color: #e8eeef;
+  color: #8a97a0;
+  box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
+  margin-bottom: 10px;
+}
+
+button {
+  padding: 19px 39px 18px 39px;
+  color: #FFF;
+  background-color: #4bc970;
+  font-size: 18px;
+  text-align: center;
+  font-style: normal;
+  border-radius: 5px;
+  width: 100%;
+  border: 1px solid #3ac162;
+  border-width: 1px 1px 3px;
+  box-shadow: 0 -1px 0 rgba(255,255,255,0.1) inset;
+  margin-bottom: 5px;
+}
+
+fieldset {
+  margin-bottom: 10px;
+  border: none;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+}
+
+label.light {
+  font-weight: 300;
+  display: inline;
+}
+
+.number {
+  background-color: #5fcf80;
+  color: #fff;
+  height: 30px;
+  width: 30px;
+  display: inline-block;
+  font-size: 0.8em;
+  margin-right: 4px;
+  line-height: 30px;
+  text-align: center;
+  text-shadow: 0 1px 0 rgba(255,255,255,0.2);
+  border-radius: 100%;
+}
+
 
 
 .footer_container{
@@ -341,6 +480,28 @@ ul{
 	color: #24262b;
 	background-color: #bde9fd;
 }
+@media (max-width: 1263px) {
+  .contact-us{
+    padding: 0;
+    margin: 0;
+  }
+  .contact-us div{
+        display: flex;
+        flex-direction: column; /* stack items vertically */
+        align-items: center;    /* optional: center items horizontally */
+        justify-content: flex-start; /* optional: align items to top */
+        margin: 0; /* reset margin */
+        padding: 0; /* reset padding */
+  }
+  .form, .layout{
+        flex: none; /* prevent flex from trying to resize */
+        width: 200%; /* or 100%, depending on preference */
+        max-width: 1000px; /* limit width to prevent overflow */
+        margin: 10px 0; /* vertical spacing between items */
+        padding: 0;
+        box-sizing: border-box;
+  }
+}
 
 @media (max-width: 1152px) {
     .hero-section h1{
@@ -349,44 +510,20 @@ ul{
     .hero-section h4{
         font-size: 24px;
     }
-    .selling-point h2{
-        font-size: 30px;
-    }
-    .why_us{
-        width: 30%;
-    }
-    .container_text h2{
-    font-size: 17px;
-    }
-    .container_text h4{
-        font-size: 14px;
-        font-weight: 500;
+    .form, .layout{
+      width: 800px;
     }
     .footer{
         padding: 0px 40px;
     }
 }
 @media (max-width: 979px) {
-    .r-one{
-        height: 850px;
+    .form, .layout{
+      width: 700px;
     }
-    .slideshow{
-        width: 90%;
-        height: 450px;
+    .footer-col h4::before{
+	      background-color: transparent;
     }
-    .explain{
-        width: 100%;
-    }
-    .consultation div{
-        padding: 15px 0px;
-    }
-    .container img{
-        width: 90%;
-        height: 90%;
-    }
-        .footer-col h4::before{
-	background-color: transparent;
-}
 }
 @media (max-width: 856px) {
     .hero-section h1{
@@ -395,54 +532,17 @@ ul{
     .hero-section h4{
         font-size: 18px;
     }
-    .selling-point h2{
-        font-size: 26px;
-    }
-    .selling-point p{
-        font-size: 17px;
-    }
-    .reasons{
-        padding: 20px;
-    }
-    .r-one{
-        height: 750px;
-        gap: 20px;
-    }
-    .slideshow{
-        width: 90%;
-        height: auto;
-    }
-    .explain{
-        width: 90%;
-    }
-    .why_us{
-        width: 30%;
+    .form, .layout{
+      width: 600px;
     }
     .footer{
         padding: 0px 40px;
     }
-    .why_choose_us {
-        display: flex;
-        flex-direction: column; /* stack items vertically */
-        align-items: center;    /* optional: center items horizontally */
-        justify-content: flex-start; /* optional: align items to top */
-        margin: 0; /* reset margin */
-        padding: 0; /* reset padding */
-    }
-
-    .why_us {
-        flex: none; /* prevent flex from trying to resize */
-        width: 90%; /* or 100%, depending on preference */
-        max-width: 90%; /* limit width to prevent overflow */
-        margin: 10px 0; /* vertical spacing between items */
-        padding: 0;
-        box-sizing: border-box;
-    }
     .footer-col{
-    width: 50%;
-    margin-bottom: 30px;
-    text-align: center;
-    align-items: center;
+      width: 50%;
+      margin-bottom: 30px;
+      text-align: center;
+      align-items: center;
     }
 
 }
@@ -459,27 +559,17 @@ ul{
     .hero-section h4{
         font-size: 16px;
     }
-    .selling-point h2{
-        font-size: 20px;
+    .form, .layout{
+      width: 400px;
     }
-    .selling-point p{
-        font-size: 16px;
+    input[type="text"],
+    input[type="date"],
+    input[type="email"],
+    input[type="telephone"],
+    textarea,
+    select{
+      width: 350px;
     }
-    .reasons{
-        padding: 20px;
-    }
-    .r-one{
-        height: 600px;
-        gap: 20px;
-    }
-    .slideshow{
-        width: 90%;
-        height: auto;
-    }
-    .explain{
-        width: 90%;
-    }
-
     .footer-col{
         width: 100%;
     }
@@ -497,36 +587,15 @@ ul{
     .hero-section h4{
         font-size: 14px;
     }
-    .selling-point{
-        padding: 20px;
+    .form, .layout{
+      width: 380px;
     }
-    .selling-point h2{
-        font-size: 22px;
-    }
-    .selling-point h4{
-        font-size: 14px;
-    }
-    .reasons{
-        padding: 20px;
-    }
-    .slideshow{
-        width: 100%;
-        height: 220px;
-    }
-    .r-one{
-        gap: 20px;
-        height: 520px;
-    }
-    .explain{
-        height: 280px;
-    }
-    .consultation div h2{
-        font-size: 22px;
-    }
-    .consultation div h4{
-        font-size: 14px;
-    }
-    .consult_btn{
-        padding: 10px 30px;
+    input[type="text"],
+    input[type="date"],
+    input[type="email"],
+    input[type="telephone"],
+    textarea,
+    select{
+      width: 250px;
     }
 }

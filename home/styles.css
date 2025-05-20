@@ -277,6 +277,8 @@ ul a:hover{
     gap: 0px;
     height: 600px;
 
+    border-radius: 10px;
+
     
     background-position: center;
     background-repeat: no-repeat;
@@ -309,6 +311,7 @@ ul a:hover{
 }
 .reasons{
     padding: 60px;
+    border-radius: 10px;
      background-image: linear-gradient(to bottom, #bde9fd, #ffffff);
 }
 .r-one{
