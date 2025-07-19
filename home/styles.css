@@ -866,6 +866,7 @@ h2{
 }
 @media (max-width: 414px) {
     .hero-section {
+        height: 800px;
         padding: 20px;
     }
     .hero-section-info{
