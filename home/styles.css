@@ -830,6 +830,9 @@ h2{
     #theme-toggle-button{
         display: none;
     }
+    .hero-section{
+        height: 800px;
+    }
     .hero-section h1{
         text-align: center;
     }
