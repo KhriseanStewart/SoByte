@@ -2,7 +2,7 @@
     font-family: "Quicksand", sans-serif;
     --app-bg: #fff;
     --modal-before: rgba(215, 215, 215, .5);
-    --main-font-color: #000;
+    --main-font-color: #fff;
     --light-font-color: #becaca;
     --main-border-color: #f3f3f3;
     --secondary-border-color: #faeceb;
@@ -13,6 +13,7 @@
     --buttons-color-secondary: #f8e4e5;
     --filter-bg: #fff;
     --search-bg: #838383;
+    --darktheme-bg: #151515;
 }
 
 *{
@@ -24,10 +25,13 @@ body, html {
     height: auto;
     margin: 0;
     padding: 0;
-    background-color: var(--app-bg);
+    background-color: var(--darktheme-bg);
     transition: 0.2s;
     overflow-x: hidden;
     overflow-y: visible;
+}
+h1{
+    color: var(--main-font-color);
 }
 /* UIVERSE DARK THEME SWITCH */
 /* From Uiverse.io by rishichawda */ 
@@ -165,7 +169,7 @@ body, html {
 
 .line {
   fill: none;
-  stroke: black;
+  stroke: white;
   stroke-linecap: round;
   stroke-linejoin: round;
   stroke-width: 3;
@@ -202,14 +206,13 @@ body, html {
   position: absolute;
   top: 50px; /* Adjust based on your layout */
   right: 0;
-  background-color: white; /* Or your preferred background */
-  border: 1px solid #ccc;
   padding: 10px;
   display: none; /* Hidden by default */
   flex-direction: column; /* Stack links vertically */
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
   z-index: 1000;
 }
+
 
 /* Show the menu when checkbox is checked */
 #menu-toggle:checked ~ .nav-mobile {
@@ -220,7 +223,8 @@ body, html {
 .nav-mobile a {
   text-decoration: none;
   padding: 8px 12px;
-  color: #333;
+  color: white;
+  font-weight: bold;
 }
 
 .nav-mobile a:hover {
@@ -246,9 +250,10 @@ nav ul{
     width: 100%;
     height: 100%;
     object-fit: cover;
+    border-radius: 100%;
 }
 a{
-    color: black;
+    color: var(--light-font-color);
     text-decoration: none;
     font-size: 18px;
 }
@@ -264,34 +269,64 @@ ul a:hover{
     padding: 4px 8px; /* optional: spacing inside border */
 }
 .nav-link.active {
-  color: #5fb2ff;
+  color: var(--main-font-color);
 }
 .nav-link:not(.active):hover {
-  color: var(--buttons-color-primary);
+  color: var(--main-font-color);
 }
 .hero-section{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: end;
     gap: 0px;
     height: 600px;
 
     border-radius: 10px;
+    padding-right: 40px;
 
     
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    background-image: url(./assets/large-vecteezy_modern-workspace-with-laptop-tablet-smartphone-and-coffee_9805357_large.jpg);
+    background-image: 
+        linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), /* Dark overlay */
+        url(./assets/Application-Integration.jpg);
+
+}
+.hero-section-info{
+    width: 60%;
+        text-align: end;
 }
 .hero-section h1{
-    font-size: 54px;
+    font-size: 34px;
 }
 .hero-section h4{
     font-size: 26px;
     font-weight: 500;
-    text-align: center;
+    text-align: end;
+}
+.hero-btn-div{
+    display: flex;
+    justify-content: end;
+    gap: 30px;
+}
+.hero-btn{
+    background-color: black;
+    padding-left: 26px;
+    padding-right: 26px;
+    padding-top: 14px;
+    padding-bottom: 14px;
+    border-radius: 8px;
+    border: 0px;
+    font-size: 18px;
+    color: white;
+
+}
+.hero-btn:hover{
+    transition: ease-in-out 300ms;
+    background-color: #becaca;
+    color: black;
 }
 .selling-point{
     display: flex;
@@ -302,17 +337,119 @@ ul a:hover{
     text-align: center;
 }
 .selling-point h2{
-    color: black;
+    color: white;
     font-size: 34px;
 }
 .selling-point p{
     color: black;
     font-size: 18px;
 }
+.price-holder{
+    display: flex;
+    gap: 30px;
+}
+.pricing{
+    border-radius: 4px;
+    background-color: var(--app-bg);
+    color: var(--darktheme-bg);
+    width: 300px;
+    padding: 20px;
+}
+.pricing:hover{
+    transition: ease-in-out 4ms;
+    background-color: #3a3a3a;
+    color: white;
+    transform: scale(1.05);
+}
+.pricing:hover > *{
+    transition: ease-in-out 300ms;
+    color: white;
+}
+.pricing ul{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    text-align: start;
+    gap: 16px;
+    color: #151515;
+    text-decoration: dotted;
+    text-decoration: #000;
+    height: 210px;
+}
+.pricing h2{
+    color: black;
+}
+.pricing h3{
+    font-size: 26px;
+}
+.pricing-btn{
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: 16px;
+    border: 0px;
+    background-color: var(--darktheme-bg);
+    color: white;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    padding-right: 70px;
+    padding-left: 70px;
+}
+h2 span{
+    font-size: 16px;
+}
 .reasons{
-    padding: 60px;
+    padding-bottom: 60px;
+    padding-right: 60px;
+    padding-left: 60px;
     border-radius: 10px;
-     background-image: linear-gradient(to bottom, #bde9fd, #ffffff);
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+.reasons > *{
+    color: white;
+}
+.card-one{
+    background-color: #3a3a3a;
+    height: 380px;
+    width: 300px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+}
+.card-one-img{
+    border-radius: 6px;
+    height: 200px;
+    background-color: white;
+}
+.card-one-info{
+    padding-top: 5px;
+    padding-bottom: 4px;
+    padding-right: 10px;
+    padding-left: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.card-one-info h3{
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 28px;
+    font-weight: 500;
+    margin: 0px;
+}
+.card-one-info p{
+    font-size: 15px;
+    font-weight: lighter;
+}
+h2{
+    color: white;
+    font-weight: 600;
+    justify-content: center;
+    text-align: center;
+    font-size: 30px;
 }
 .r-one{
     gap: 40px;
@@ -382,8 +519,7 @@ ul a:hover{
     object-fit: cover;
 }
 .card {
-    background: #fff;
-    color: #333;
+    color: white;
     margin: 80px auto;
     width: 90%;
     max-width: 1200px;
@@ -393,6 +529,7 @@ ul a:hover{
 .title {
     text-align: center;
     font-size: 36px;
+    color: white;
 }
 
 .acc-container {
@@ -409,10 +546,11 @@ ul a:hover{
     text-align: left;
     font-size: 15px;
     transition: all 0.5s ease;
+    color: white;
 }
 .acc-btn:after {
     content: "\27A4";
-    color: #fa8d0c;
+    color: white;
     float: right;
     transition: all 0.3s linear;
 }
@@ -420,14 +558,14 @@ ul a:hover{
     transform: rotate(90deg);
 }
 .acc-btn:hover, .acc-btn.is-open {
-    color: #000;
+    color: white;
     font-weight: bold;
     
 }
 
 .acc-content {
     max-height: 0;
-    color: rgba(0,0,0,0.75);
+    color: white;
     font-size: 17px;
     margin: 0 2rem;
     padding-left: 1rem;
@@ -507,19 +645,17 @@ ul a:hover{
 	display: flex;
 	flex-wrap: wrap;
 }
-ul{
-	list-style: none;
-}
 .footer{
     padding: 70px 0;
 }
 .footer-col{
    width: 25%;
    padding: 0 15px;
+   color: white;
 }
 .footer-col h4{
 	font-size: 18px;
-	color: black;
+	color: white;
 	text-transform: capitalize;
 	margin-bottom: 35px;
 	font-weight: 500;
@@ -537,19 +673,19 @@ ul{
 }
 .footer-col ul li:not(:last-child){
 	margin-bottom: 10px;
+
 }
 .footer-col ul li a{
 	font-size: 16px;
 	text-transform: capitalize;
-	color: black;
+	color: white;
 	text-decoration: none;
 	font-weight: 300;
-	color: black;
 	display: block;
 	transition: all 0.3s ease;
 }
 .footer-col ul li a:hover{
-	color: #333;
+	color: white;
 	padding-left: 8px;
 }
 .footer-col .social-links a{
@@ -561,7 +697,7 @@ ul{
 	text-align: center;
 	line-height: 40px;
 	border-radius: 50%;
-	color: black;
+	color: white;
 	transition: all 0.5s ease;
 }
 .footer-col .social-links a:hover{
@@ -594,15 +730,15 @@ ul{
     }
 }
 @media (max-width: 979px) {
-    .r-one{
-        height: 850px;
+    .price-holder{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
-    .slideshow{
-        width: 90%;
-        height: 450px;
-    }
-    .explain{
-        width: 100%;
+    .reasons{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
     .consultation div{
         padding: 15px 0px;
@@ -611,15 +747,25 @@ ul{
         width: 90%;
         height: 90%;
     }
-        .footer-col h4::before{
-	background-color: transparent;
-}
+    .footer-col h4::before{
+	    background-color: transparent;
+    }
 }
 @media (max-width: 856px) {
+    .hero-section{
+        text-align: center;
+        align-items: center;
+        padding: 0px;
+    }
+    .hero-section-info{
+        text-align: center;
+        width: 400px;
+    }
     .hero-section h1{
         font-size: 34px;
     }
     .hero-section h4{
+         text-align: center;
         font-size: 18px;
     }
     .selling-point h2{
@@ -679,6 +825,10 @@ ul{
     }
     .hamburger{
         display: inline-block;
+        color: white;
+    }
+    #theme-toggle-button{
+        display: none;
     }
     .hero-section h1{
         text-align: center;
@@ -717,6 +867,13 @@ ul{
 @media (max-width: 414px) {
     .hero-section {
         padding: 20px;
+    }
+    .hero-section-info{
+        width: 300px;
+    }
+    .hero-btn{
+        font-size: 14px;
+        font-weight: bold;
     }
     .hero-section h1{
         font-size: 26px;
